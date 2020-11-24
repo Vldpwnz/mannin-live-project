@@ -8,17 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
+
 public class TransactionServiceTest {
 	
-	@Autowired
-	TransactionService transactionService;
+	
+	TransactionService transactionService = new TransactionService();;
 
 	@Test
 	void testIfCollectionOfTransactionIsNotEmpty() {
 		
-		assertEquals(3, transactionService.findAllByAccountNumber("12345").size());
+		assertEquals(3, transactionService.findAllByAccountNumber(12345).size());
 	}
 
 }
+
