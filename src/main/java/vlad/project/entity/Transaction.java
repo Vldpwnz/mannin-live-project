@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 public class Transaction {
 	
 	private String type;
-	private int accountNumber;
+	private Integer accountNumber;
 	private String currency;
 	private double ammount;
 	private String merchantName;
@@ -19,7 +19,7 @@ public class Transaction {
 		
 	}
 	
-	public Transaction(String type, int accountNumber, String currency, double ammount, String merchantName,
+	public Transaction(String type, Integer accountNumber, String currency, double ammount, String merchantName,
 			String merchantLogo) {
 		this.type = type;
 		this.accountNumber = accountNumber;
@@ -37,7 +37,7 @@ public class Transaction {
 		this.type = type;
 	}
 	
-	public int getAccountNumber() {
+	public Integer getAccountNumber() {
 		return accountNumber;
 	}
 	
