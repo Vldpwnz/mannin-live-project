@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.4.0'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	
+	
 }
 
 group = 'vlad.project'
@@ -31,6 +33,10 @@ dependencies {
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
 	compile group: 'com.github.joschi.jackson', name: 'jackson-datatype-threetenbp', version: '2.6.4'
 	compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
+	compile 'io.github.resilience4j:resilience4j-spring-boot2:1.5.0'
+
+
+	
 	
 	
 	

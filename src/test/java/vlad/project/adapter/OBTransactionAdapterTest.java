@@ -1,5 +1,6 @@
 package vlad.project.adapter;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +29,7 @@ public class OBTransactionAdapterTest {
 	@Test
 	public void testAdapterMethodForValidity() {
 		Transaction transaction = obTransactionAdapter.getTransaction(obTransaction6);
-		
+		assertEquals(-1.0, transaction.getAmmount());
 	}
 
 }

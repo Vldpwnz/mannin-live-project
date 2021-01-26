@@ -6,6 +6,6 @@ import vlad.project.entity.Transaction;
 
 public interface TransactionApiClient {
 	
-	List<Transaction> getTransactions(Integer accountNumber);
+	List<Transaction> getTransactionsByAccountNumber(Integer accountNumber);
 
 }
