@@ -21,7 +21,7 @@ public class OBTransactionAdapterTest {
 	@InjectMocks
     private OBTransactionAdapter obTransactionAdapter = new OBTransactionAdapterImpl();
 	
-	 @BeforeEach
+	@BeforeEach
 	    void setMockOutput() {
 	        when(obTransaction6.getAmount()).thenReturn(null);
 	    }
