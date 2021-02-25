@@ -27,7 +27,7 @@ extends WebSecurityConfigurerAdapter {
 		
 		var user = User
 				.withUsername("vlad")
-				.password(encoder().encode("pass"))
+				.password(encoder().encode("password"))
 				.authorities("read")
 				.build();
 		

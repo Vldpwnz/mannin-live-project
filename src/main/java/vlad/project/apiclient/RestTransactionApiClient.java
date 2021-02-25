@@ -18,7 +18,7 @@ import vlad.project.adapter.OBTransactionAdapter;
 import vlad.project.adapter.OBTransactionAdapterImpl;
 import vlad.project.entity.Transaction;
 import vlad.project.model.OBReadTransaction6;
-import vlad.project.model.OBTransaction6;
+
 
 
 @Slf4j
@@ -27,10 +27,6 @@ public class RestTransactionApiClient implements TransactionApiClient {
 	
 	
 	private final WebClient webClient;
-	
-	
-	@Value(value = "${base.url}")
-	private String baseUrl;
 	
 	@Value(value = "${client.id}")
 	private String clientId;
@@ -42,8 +38,8 @@ public class RestTransactionApiClient implements TransactionApiClient {
 	private OBTransactionAdapter adapter = new OBTransactionAdapterImpl();
 	
 	@Autowired
-	public RestTransactionApiClient(WebClient.Builder client) {
-		this.webClient = client.baseUrl(baseUrl).build();
+	public RestTransactionApiClient(final WebClient client) {
+		this.webClient = client;
 	}
 	
 	
@@ -65,7 +61,6 @@ public class RestTransactionApiClient implements TransactionApiClient {
 					.flatMap(tokenResponse -> {
 						String accessToken = tokenResponse.get("access_token")
 								.textValue();
-						System.out.println(accessToken);
 						return webClient.get()
 								.uri("accounts/" + accountNumber + "/transactions")
 								.headers(h -> h.setBearerAuth(accessToken))
@@ -75,15 +70,13 @@ public class RestTransactionApiClient implements TransactionApiClient {
 					.block();
 	        } catch (Exception ex) {
 	        	System.out.println(ex.getMessage());
-	        	System.out.println(baseUrl);
-	        	System.out.println(clientId + " " + secret);
 	        	
 	        }
 
 	        if (obTransaction == null || obTransaction.getData() == null) {
 	            return Collections.emptyList();
 	        }
-
+	        
 	        return obTransaction.getData()
 	                .getTransaction()
 	                .stream()

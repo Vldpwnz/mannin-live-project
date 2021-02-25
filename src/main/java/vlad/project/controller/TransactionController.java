@@ -17,14 +17,18 @@ import vlad.project.service.TransactionService;
 @RequestMapping("/transactions")
 public class TransactionController {
 	
-	@Autowired
-	TransactionService transactionService;
+	private final TransactionService transactionService;
+	
+	public TransactionController(final TransactionService transactionService) {
+        this.transactionService = transactionService;
+    }
+	
 	
 	@GetMapping("/{accountNumber}")
-    @PostFilter(value = "hasAuthority(filterObject.accountNumber)")
     public List<Transaction> findAllByAccountNumber(@PathVariable("accountNumber") final Integer accountNumber
     , Principal principal
     ) {
+		
         return transactionService.findAllByAccountNumber(accountNumber);
     }
 

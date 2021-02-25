@@ -20,8 +20,8 @@ public class TransactionService {
 	
 	
 	
-	public TransactionService(RestTransactionApiClient transactionClient,
-			InMemoryMerchantDetailsRepository merchantDetailsRepository) {
+	public TransactionService(final RestTransactionApiClient transactionClient,
+			final InMemoryMerchantDetailsRepository merchantDetailsRepository) {
 		
 		this.transactionClient = transactionClient;
 		this.merchantDetailsRepository = merchantDetailsRepository;

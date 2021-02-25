@@ -1,10 +1,13 @@
 package vlad.project.entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Transaction {
 	
 	private String type;
@@ -14,20 +17,6 @@ public class Transaction {
 	private String merchantName;
 	private String merchantLogo;
 	
-	
-	public Transaction() {
-		
-	}
-	
-	public Transaction(String type, Integer accountNumber, String currency, double ammount, String merchantName,
-			String merchantLogo) {
-		this.type = type;
-		this.accountNumber = accountNumber;
-		this.currency = currency;
-		this.ammount = ammount;
-		this.merchantName = merchantName;
-		this.merchantLogo = merchantLogo;
-	}
 	
 	public String getType() {
 		return type;
